@@ -7,6 +7,8 @@ const withNextra = nextra({
 
 const nextConfig: NextConfig = {
   output: 'export',
+  basePath: '/next-docs',
+  assetPrefix: '/next-docs',
   images: {
     unoptimized: true // mandatory, otherwise won't export
   }
