@@ -7,12 +7,12 @@ const withNextra = nextra({
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: '/next-docs',
-  assetPrefix: '/next-docs',
+  // basePath: '/next-docs',
+  // assetPrefix: '/next-docs',
   images: {
     unoptimized: true // mandatory, otherwise won't export
   },
-  trailingSlash: true,
+  // trailingSlash: true,
 }
 
 export default withNextra(nextConfig)
