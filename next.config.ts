@@ -7,6 +7,7 @@ const withNextra = nextra({
 
 const nextConfig: NextConfig = {
   output: 'export',
+  basePath: process.env.PAGES_BASE_PATH,
   // basePath: '/next-docs',
   // assetPrefix: '/next-docs',
   images: {
