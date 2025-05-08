@@ -11,17 +11,13 @@ export const metadata = {
 const banner = <Banner storageKey="some-key">Nextra 4.0 is released 🎉</Banner>
 const navbar = (
   <Navbar
-    logo={<b>NextExtend</b>}
+    logo={<b>Nextra</b>}
     // ... Your additional navbar options
   />
 )
-const footer = <Footer>{new Date().getFullYear()} © NextExtend.</Footer>
-
-interface RootLayoutProps {
-  children: React.ReactNode
-}
-
-export default async function RootLayout({ children }: RootLayoutProps) {
+const footer = <Footer>MIT {new Date().getFullYear()} © Nextra.</Footer>
+ 
+export default async function RootLayout({ children }) {
   return (
     <html
       // Not required, but good for SEO
@@ -41,7 +37,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           banner={banner}
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/next-resources/next-docs"
+          docsRepositoryBase="https://github.com/shuding/nextra/tree/main/docs"
           footer={footer}
           // ... Your additional layout options
         >
