@@ -6,7 +6,7 @@ const withNextra = nextra({
  
 export default withNextra({
     rewrites: null,
-    output: 'export',
+    output: "export",
     images: {
       unoptimized: true,
     },
