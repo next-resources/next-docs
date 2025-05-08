@@ -1,11 +1,12 @@
-// next.config.js
 import nextra from 'nextra'
-
+ 
+// Set up Nextra with its configuration
 const withNextra = nextra({
-
+  // ... Add Nextra-specific options here
 })
-
-const nextConfig = {
+ 
+// Export the final Next.js config with Nextra included
+export default withNextra({
   output: 'export',
   basePath: "/next-docs",
   // optioneel, alleen als je mdx-components gebruikt
@@ -17,6 +18,4 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-}
-
-export default withNextra(nextConfig)
+})
