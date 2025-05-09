@@ -5,7 +5,7 @@ const withNextra = require('nextra')({
 
 module.exports = {
   ...withNextra(),
-  basePath: '/next-docs',
+  basePath: '/',
   images: { unoptimized: true },
   trailingSlash: true,
 };
