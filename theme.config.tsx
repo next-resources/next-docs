@@ -1,18 +1,52 @@
-import React from 'react'
-import Image from 'next/image'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import React from 'react';
+import { DocsThemeConfig, useConfig } from 'nextra-theme-docs';
+import { useRouter } from 'next/router';
+
+function useHead() {
+  const { asPath } = useRouter();
+  const { frontMatter, title } = useConfig();
+  const url = `https://docs.nextextended.com${asPath}`;
+  const description = frontMatter.description || "Documentation for Next Extended's resources for FiveM/RedM";
+
+  return (
+    <>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="icon" type="image/x-icon" href="/static/nexthub.ico" />
+      <meta httpEquiv="Content-Language" content="en" />
+      <meta name="description" content={description} />
+      <meta name="og:title" content={title} />
+      <meta name="og:description" content={description} />
+      <meta name="og:url" content={url} />
+    </>
+  );
+}
+
+function useNextSeoProps() {
+  const { asPath } = useRouter();
+  const arr = asPath.replace(/[-_]/g, ' ').split('/');
+  const category = (arr[1][0] !== '#' && arr[1]) || 'Next Extended';
+  const rawTitle = arr[arr.length - 1];
+  const title = /[a-z]/.test(rawTitle) && /[A-Z]/.test(rawTitle) ? rawTitle : '%s';
+
+  return {
+    titleTemplate: `${title} - ${
+      rawTitle === category ? 'Documentation' : category.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())
+    }`,
+  };
+}
 
 const config: DocsThemeConfig = {
   logo: (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-      <Image 
-        src="https://cdn.discordapp.com/attachments/1365267177380249710/1365398501248335933/nextjs-icon-dark-background_1.png?ex=681e4d72&is=681cfbf2&hm=3ef41db99e530caef7e461262853b23078a876d1f096cf2e0441206ec48dc12b&" 
-        alt="Logo" 
-        className="h-8 w-8" 
-        height={32}
-        width={32}
-      />
-      <span>Next Extended</span>
+    <div
+      style={{
+        paddingLeft: '50px',
+        lineHeight: '38px',
+        background: "url('https://avatars.githubusercontent.com/u/209795011?s=64') no-repeat left",
+        backgroundSize: '38px',
+        fontWeight: 550,
+      }}
+    >
+      Next Extended
     </div>
   ),
   project: {
@@ -21,10 +55,20 @@ const config: DocsThemeConfig = {
   chat: {
     link: 'https://discord.nextextended.com',
   },
-  docsRepositoryBase: 'https://github.com/next-resources/next-docs',
+  docsRepositoryBase: 'https://github.com/next-resources/next-resources.github.io/blob/main',
   footer: {
-    text: 'Nextra Docs Template',
+    text: 'Next Extended',
   },
-}
+  head: useHead,
+  primaryHue: { dark: 200, light: 200 },
+  sidebar: {
+    defaultMenuCollapseLevel: 1,
+  },
+  toc: {
+    backToTop: true,
+  },
 
-export default config
+  useNextSeoProps: useNextSeoProps,
+};
+
+export default config;
