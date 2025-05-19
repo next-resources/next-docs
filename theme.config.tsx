@@ -65,7 +65,7 @@ const config: DocsThemeConfig = {
     defaultMenuCollapseLevel: 1,
   },
   toc: {
-    backToTop: true,
+    // backToTop: true,
   },
 
   useNextSeoProps: useNextSeoProps,
