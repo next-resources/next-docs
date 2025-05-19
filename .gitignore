@@ -1,4 +1,9 @@
 node_modules
 .next
 .old
+
+
+## Help
 .out
+out
+/out
