@@ -7,7 +7,7 @@ export const metadata = {
   // For more information on metadata API, see: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 }
  
-// const banner = <Banner storageKey="some-key">Nextra 4.0 is released 🎉</Banner>
+const banner = <Banner storageKey="some-key">The documentation is still in development!</Banner>
 
 const navbar = (
   <Navbar
@@ -36,7 +36,7 @@ export default async function RootLayout({ children }) {
       </Head>
       <body>
         <Layout
-        //   banner={banner}
+          banner={banner}
           navbar={navbar}
           pageMap={await getPageMap()}
           docsRepositoryBase="https://github.com/next-resources/next-docs/tree/main"
