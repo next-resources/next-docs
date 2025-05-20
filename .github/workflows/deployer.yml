@@ -72,18 +72,22 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       
       - name: Push build output to debug branch
-        if: github.ref == 'refs/heads/main' # optional: restrict to main
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git fetch
           git switch --orphan gh-pages-debug
-          git rm -rf .
-          cp -r out/* .
-          touch .nojekyll  # optional: disable Jekyll on GitHub Pages
+          rm -rf ./*
+          # Kopieer inhoud van ./out naar root, inclusief verborgen bestanden
+          cp -a out/. .
+          touch .nojekyll
           git add .
-          git commit -m "Debug build output"
-          git push -f origin gh-pages-debug
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Debug build output"
+            git push -f origin gh-pages-debug
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
