@@ -1,8 +1,7 @@
 import { Footer, Layout, Navbar } from 'nextra-theme-docs'
 import { Banner, Head } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
-import 'nextra-theme-docs/style.css'
- 
+import './global.css'
 export const metadata = {
   title: 'Next Extended',
   // For more information on metadata API, see: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
