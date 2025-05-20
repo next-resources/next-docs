@@ -1,1 +1,111 @@
-Hi
+# Next Extended
+
+import { Callout } from 'nextra/components'
+
+export async function repoCount() {
+  const response = await fetch('https://api.github.com/orgs/next-resources')
+  const org = await response.json()
+
+  const repoCount = org.public_repos
+
+  return repoCount
+}
+
+export async function followersCount() {
+  const response = await fetch('https://api.github.com/orgs/next-resources')
+  const org = await response.json()
+
+  const followersCount = org.followers
+
+  return followersCount
+}
+
+
+<Callout emoji="🏆">
+    <h2>GitHub</h2>
+    <ul>
+    <li><strong>Total Repositories:</strong> {await repoCount()}</li>
+    <li><strong>Total Followers:</strong> {await followersCount()}</li>
+    </ul>
+</Callout>
+
+
+import { FaDiscord, FaGithub, FaTwitter } from 'react-icons/fa'
+import Link from 'next/link'
+
+# 👥 Our Team
+
+Meet the team behind this project.
+
+<div className="grid md:grid-cols-3 gap-6 mt-6">
+
+  {/* SnepCnep */}
+  <div className="bg-white dark:bg-neutral-900 rounded-2xl p-6 shadow text-center transition hover:shadow-lg">
+    <img
+      src="https://cdn.discordapp.com/avatars/630029784302485524/651fc3f14b194f0fee78aae2a85cbbb7.png?size=1024"
+      alt="SnepCnep"
+      className="w-24 h-24 mx-auto rounded-full object-cover mb-4"
+    />
+    <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-100">SnepCnep</h3>
+    <p className="text-neutral-600 dark:text-neutral-400">Developer</p>
+    <div className="flex justify-center gap-4 mt-3 text-neutral-500 dark:text-neutral-400">
+      <Link href="https://discord.com/users/630029784302485524" passHref legacyBehavior>
+        <a target="_blank" rel="noopener noreferrer" aria-label="SnepCnep on Discord">
+          <FaDiscord className="hover:text-indigo-500 transition" />
+        </a>
+      </Link>
+      <Link href="https://github.com/snepcnep" passHref legacyBehavior>
+        <a target="_blank" rel="noopener noreferrer" aria-label="SnepCnep on GitHub">
+          <FaGithub className="hover:text-gray-800 dark:hover:text-white transition" />
+        </a>
+      </Link>
+    </div>
+  </div>
+
+  {/* Slashy */}
+  <div className="bg-white dark:bg-neutral-900 rounded-2xl p-6 shadow text-center transition hover:shadow-lg">
+    <img
+      src="https://cdn.discordapp.com/avatars/308265375739412480/afc18082d038b9c0f572a8b044186724.png?size=1024"
+      alt="Slashy"
+      className="w-24 h-24 mx-auto rounded-full object-cover mb-4"
+    />
+    <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-100">Slashy</h3>
+    <p className="text-neutral-600 dark:text-neutral-400">Developer</p>
+    <div className="flex justify-center gap-4 mt-3 text-neutral-500 dark:text-neutral-400">
+      <Link href="https://discord.com/users/308265375739412480" passHref legacyBehavior>
+        <a target="_blank" rel="noopener noreferrer" aria-label="Slashy on Discord">
+          <FaDiscord className="hover:text-indigo-500 transition" />
+        </a>
+      </Link>
+      <Link href="https://github.com/slashyistaken" passHref legacyBehavior>
+        <a target="_blank" rel="noopener noreferrer" aria-label="Slashy on GitHub">
+          <FaGithub className="hover:text-gray-800 dark:hover:text-white transition" />
+        </a>
+      </Link>
+    </div>
+  </div>
+
+  {/* ZweetStreep */}
+  <div className="bg-white dark:bg-neutral-900 rounded-2xl p-6 shadow text-center transition hover:shadow-lg">
+    <img
+      src="https://cdn.discordapp.com/avatars/713448937490481182/a_edc384e3cb44935ee5ecddc99da067aa.gif?size=1024"
+      alt="ZweetStreep"
+      className="w-24 h-24 mx-auto rounded-full object-cover mb-4"
+    />
+    <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-100">ZweetStreep</h3>
+    <p className="text-neutral-600 dark:text-neutral-400">Developer</p>
+    <div className="flex justify-center gap-4 mt-3 text-neutral-500 dark:text-neutral-400">
+      <Link href="https://discord.com/users/713448937490481182" passHref legacyBehavior>
+        <a target="_blank" rel="noopener noreferrer" aria-label="ZweetStreep on Discord">
+          <FaDiscord className="hover:text-indigo-500 transition" />
+        </a>
+      </Link>
+      <Link href="https://github.com/arootsy" passHref legacyBehavior>
+        <a target="_blank" rel="noopener noreferrer" aria-label="ZweetStreep on GitHub">
+          <FaGithub className="hover:text-gray-800 dark:hover:text-white transition" />
+        </a>
+      </Link>
+    </div>
+  </div>
+
+</div>
