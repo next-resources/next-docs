@@ -3,7 +3,7 @@ import { Banner, Head } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import './global.css'
 export const metadata = {
-  title: 'Next Extended',
+  title: 'Nextextend',
   // For more information on metadata API, see: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 }
  
@@ -11,13 +11,13 @@ const banner = <Banner storageKey="some-key">The documentation is still in devel
 
 const navbar = (
   <Navbar
-    logo={<b>Next Extended</b>}
-    chatLink="https://discord.nextextended.com"
+    logo={<b>Nextextend</b>}
+    chatLink="https://discord.nextextend.com"
     projectLink='https://github.com/next-resources/next-docs'
     // ... Your additional navbar options
   />
 )
-const footer = <Footer>MIT {new Date().getFullYear()} © Next Extended.</Footer>
+const footer = <Footer>MIT {new Date().getFullYear()} © Nextextend.</Footer>
  
 export default async function RootLayout({ children }) {
   return (
