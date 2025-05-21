@@ -13,7 +13,7 @@ const navbar = (
   <Navbar
     logo={<b>Nextextend</b>}
     chatLink="https://discord.nextextend.com"
-    projectLink='https://github.com/next-resources/next-docs'
+    projectLink='https://github.com/nextextend/next-docs'
     // ... Your additional navbar options
   />
 )
@@ -39,7 +39,7 @@ export default async function RootLayout({ children }) {
           banner={banner}
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/next-resources/next-docs/tree/main"
+          docsRepositoryBase="https://github.com/nextextend/next-docs/tree/main"
           footer={footer}
           // ... Your additional layout options
         >
