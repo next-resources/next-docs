@@ -52,3 +52,9 @@ jobs:
 
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+
+      - name: postbuild
+        run: ${{ steps.detect-package-manager.outputs.runner }} npm run postbuild
+
+      
+        
